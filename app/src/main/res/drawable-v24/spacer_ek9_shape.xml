@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- spacer_ek9 from your PSD file. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+	android:shape="rectangle" >
+	<corners android:radius="10dp" />
+	<stroke android:color="#e1932e" android:width="1dp" />
+	<solid android:color="@color/bg_color" />
+</shape>
+

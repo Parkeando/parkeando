@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- login___create_account colors -->
+	<!-- login___create_account colors -->
+
+	<color name="colorPrimary">#008577</color>
+	<color name="colorPrimaryDark">#00574B</color>
+	<color name="colorAccent">#D81B60</color>
+
+	<color name="_bg__login___create_account_ek2_color">#ffd28f</color>
+	<color name="bg_color">#ffffff</color>
+	<color name="iniciar_sesion_color">#e1932e</color>
+	<color name="spacer_ek1_color">#e1932e</color>
+	<color name="crear_cuenta_color">#ffffff</color>
+	<color name="fill_color">#000000</color>
+	<color name="_9_41_am_color">#000000</color>
+	<color name="rect_ngulo_156_color">#363636</color>
+	<color name="bg_ek1_color">#202426</color>
+	<color name="__color">#1653e1</color>
+	<color name="bg_ek4_color">#dddddd</color>
+	<color name="correo_color">#202426</color>
+	<color name="last_week_color">#07877d</color>
+	<color name="bg_ek13_color">#07877d</color>
+	<color name="elipse_4_color">#c10404</color>
+	<color name="__231_30___color">#c10404</color>
+	<color name="card_ek1_color">#ffffff00</color>
+
+	<color name="cardiocolor">#282C43</color>
+</resources>

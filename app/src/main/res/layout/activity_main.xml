@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity">
+    <ScrollView android:id="@+id/create_account___1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout android:id="@+id/content_container"
+            android:layout_width="wrap_content"
+            android:layout_height="896dp" >
+
+
+
+            <RelativeLayout android:id="@+id/page_create_account___1_ek1"
+                android:layout_marginTop="0dp"
+                android:layout_marginStart="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <View android:id="@+id/_bg__create_account___1_ek2"
+                    android:background="@drawable/_bg__create_account___1_ek2_shape"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_width="414dp"
+                    android:layout_height="896dp" />
+
+                <View android:id="@+id/bg_ek2"
+                    android:background="@drawable/bg_ek2_shape"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="470dp"
+                    android:layout_width="414dp"
+                    android:layout_height="426dp" />
+
+
+                <RelativeLayout android:id="@+id/status_bar___light_ek1"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+
+                    <RelativeLayout android:id="@+id/grupo_5_ek1"
+                        android:layout_marginTop="17dp"
+                        android:layout_marginStart="332dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+
+                        <RelativeLayout android:id="@+id/battery_ek1"
+                            android:layout_marginTop="1dp"
+                            android:layout_marginStart="44dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <ImageView android:id="@+id/tip_ek1"
+                                android:src="@drawable/tip_ek1"
+                                android:contentDescription="tip_ek1"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="3dp"
+                                android:layout_width="1.5dp"
+                                android:layout_height="3.5dp" />
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout android:id="@+id/home_bar___light_ek1"
+                    android:layout_marginTop="852dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <View android:id="@+id/rect_ngulo_157_ek1"
+                        android:background="@drawable/rect_ngulo_157_ek1_shape"
+                        android:alpha="0"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_width="414dp"
+                        android:layout_height="44dp" />
+
+                    <View android:id="@+id/rect_ngulo_156_ek1"
+                        android:background="@drawable/rect_ngulo_156_ek1_shape"
+                        android:layout_marginLeft="142dp"
+                        android:layout_marginStart="142dp"
+                        android:layout_marginTop="27dp"
+                        android:layout_width="130dp"
+                        android:layout_height="5dp" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout android:id="@+id/user_ek1"
+                    android:layout_marginTop="96dp"
+                    android:layout_marginStart="336dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <View android:id="@+id/bg_ek3"
+                        android:background="@drawable/bg_ek3_shape"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp" />
+
+
+                    <RelativeLayout android:id="@+id/_24px_9_ek1"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <ImageView android:id="@+id/trazado_101_ek1"
+                            android:src="@drawable/trazado_101_ek1"
+                            android:contentDescription="trazado_101_ek1"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp" />
+
+                        <ImageView android:id="@+id/trazado_102_ek1"
+                            android:src="@drawable/trazado_102_ek1"
+                            android:contentDescription="trazado_102_ek1"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout android:id="@+id/textfield"
+                    android:layout_marginTop="532dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <View android:id="@+id/rect_ngulo_561"
+                        android:background="@drawable/rect_ngulo_561_shape"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_width="414dp"
+                        android:layout_height="56dp" />
+
+
+                    <RelativeLayout android:id="@+id/textfield_ek1"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+
+<!--
+                        <TextView android:id="@+id/correo"
+                            android:fontFamily="Inter"
+                            android:alpha="0.31999999284744"
+                            android:textSize="16sp"
+                            android:textColor="@color/correo_color"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_width="54dp"
+                            android:layout_height="24dp"
+                            android:text="@string/correo_string"
+                            />   -->
+
+                        <EditText
+                            android:id="@+id/etNombreLog"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:alpha="0.31999999284744"
+                            android:textSize="16sp"
+                            android:textColor="@color/correo_color"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginTop="0dp"
+                            android:hint="@string/correo_string"
+                            />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout android:id="@+id/textfield_ek2"
+                    android:layout_marginTop="612dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <View android:id="@+id/rect_ngulo_561_ek1"
+                        android:background="@drawable/rect_ngulo_561_ek1_shape"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_width="414dp"
+                        android:layout_height="56dp" />
+
+
+                    <RelativeLayout android:id="@+id/textfield_ek3"
+                        android:layout_marginTop="17dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="34dp"
+                            android:id="@+id/tilPassword"
+                            app:passwordToggleEnabled="true"
+                            app:counterMaxLength="45">
+<!-- EDIT DE LA CONTASEÑA -->
+
+                        <EditText android:id="@+id/etPasswordLog"
+                            android:fontFamily="Arial"
+                            android:alpha="0.31999999284744"
+                            android:textSize="16sp"
+                            android:textColor="@color/fill_color"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginTop="0dp"
+                            android:inputType="textPassword"
+                            android:singleLine="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/contrase_a_string"
+                            />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout android:id="@+id/button_primary__ek2"
+                    android:layout_marginTop="700dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+<!---
+                    <View android:id="@+id/spacer_ek2"
+                        android:background="@drawable/spacer_ek2_shape"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_width="352dp"
+                        android:layout_height="46dp" />
+
+                    <TextView android:id="@+id/iniciar_sesi_n"
+                        android:fontFamily="Inter"
+                        android:textSize="16sp"
+                        android:textColor="@color/crear_cuenta_color"
+                        android:layout_marginLeft="131dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_width="98dp"
+                        android:layout_height="24dp"
+                        android:text ="@string/iniciar_sesi_n_string"
+                        /> -->
+
+                    <Button
+                        android:id="@+id/btnLoguear"
+                        android:layout_width="352dp"
+                        android:layout_height="46dp"
+                        android:text ="@string/iniciar_sesi_n_string"
+                        android:background="@drawable/spacer_ek2_shape"
+                        >
+
+                    </Button>
+
+                </RelativeLayout>
+<!-- TEXTVIEW QUE REDIRECCIONA A OTRA ACTIVITY -->
+                <TextView android:id="@+id/txtRegistrar"
+                    android:fontFamily="Inter"
+                    android:textSize="16sp"
+                    android:textColor="@color/iniciar_sesion_color"
+                    android:layout_marginLeft="150dp"
+                    android:layout_marginTop="831dp"
+                    android:layout_width="250dp"
+                    android:layout_height="24dp"
+                    android:text="@string/__necesitas_ayuda__string"
+                    />
+
+                <TextView android:id="@+id/p__ek1"
+                    android:fontFamily="Inter"
+                    android:textSize="101sp"
+                    android:textColor="@color/iniciar_sesion_color"
+                    android:layout_marginLeft="157dp"
+                    android:layout_marginTop="280dp"
+                    android:layout_width="105dp"
+                    android:layout_height="154dp"
+                    android:text="@string/p__ek1_string"
+                    />
+
+            </RelativeLayout>
+
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</HorizontalScrollView>
