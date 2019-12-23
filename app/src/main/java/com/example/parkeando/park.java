@@ -88,14 +88,8 @@ public class park extends AppCompatActivity implements NavigationView.OnNavigati
 
         txtCorreo = (TextView) hView.findViewById ( R.id.txtCorreo ) ;
         txtCorreo.setText ( correo );
-       // txtSaldo = (TextView) hView.findViewById ( R.id.txtSaldo );
 
-
-
-   //    Toast.makeText ( this, "Su saldo es de : " + s.getSaldo (), Toast.LENGTH_SHORT ).show ();
-
-
-        navigationView.setNavigationItemSelectedListener(this );
+     //   navigationView.setNavigationItemSelectedListener(this );
 
 
 
