@@ -3,6 +3,7 @@ package com.example.parkeando.ui.home;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.renderscript.Sampler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,9 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.parkeando.Config.Config;
+import com.example.parkeando.PreferencesSesion;
 import com.example.parkeando.R;
+import com.example.parkeando.WebServiceSaldo;
 import com.google.android.material.textfield.TextInputLayout;
 import com.paypal.android.sdk.payments.PayPalConfiguration;
 import com.paypal.android.sdk.payments.PayPalPayment;
@@ -58,6 +61,7 @@ public class HomeFragment extends Fragment {
 
     private String amount = "";
 
+    private WebServiceSaldo wss;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -92,7 +96,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //scanearTarjeta ();
-                validarMontoTarjeta ();
+               validarMontoTarjeta ();
+              //  prueba();
             }
         } );
 
@@ -111,6 +116,8 @@ public class HomeFragment extends Fragment {
 
         return root;
     }
+
+
 
     private void validarMontopaypal(){
         String monto = etMonto.getText ().toString ();
@@ -168,16 +175,26 @@ public class HomeFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult ( requestCode, resultCode, data );
-
+//Tarjeta
         if(requestCode == SCAN_RESULT){
             if(data != null && data.hasExtra(CardIOActivity.EXTRA_SCAN_RESULT)){
                 CreditCard scanResult = data.getParcelableExtra(CardIOActivity.EXTRA_SCAN_RESULT);
                 textViewTarjeta.setText(scanResult.getRedactedCardNumber());
+             //   Toast.makeText ( getContext (), scanResult.getRedactedCardNumber (), Toast.LENGTH_SHORT ).show ();
+
+
 
                 if(scanResult.isExpiryValid()){
                     String mes = String.valueOf(scanResult.expiryMonth);
                     String an = String.valueOf(scanResult.expiryYear);
                     textViewFecha.setText(mes + "/" + an);
+                    wss = new WebServiceSaldo (getContext ());
+                    final String usuario = PreferencesSesion.obtenerPreferenceString(getContext (),PreferencesSesion.PREFERENCE_ESTADO_LOGIN);
+
+                    float monto = Integer.parseInt (etMonto.getText ().toString () );
+                final  String registrarCuenta = "registrarCuenta";
+                    wss.abonarSaldo ( monto, usuario, scanResult.getFormattedCardNumber (), registrarCuenta,  getContext () );
+
                 }
             }
         }
@@ -192,6 +209,13 @@ public class HomeFragment extends Fragment {
                                 .putExtra("PaymentDetails",paymentDetails)
                                 .putExtra("Amount",amount)); */
                        Toast.makeText ( getContext (), "Transaccion Exitosa...."+ paymentDetails, Toast.LENGTH_SHORT ).show ();
+                        wss = new WebServiceSaldo (getContext ());
+                        final String usuario = PreferencesSesion.obtenerPreferenceString(getContext (),PreferencesSesion.PREFERENCE_ESTADO_LOGIN);
+
+                        float monto = Float.parseFloat (etMonto.getText ().toString () );
+                        final  String registrarCuenta = "registrarCuentaPaypal";
+                        wss.abonarSaldo ( monto, usuario, Config.PAGO_CON_PAYPAL, registrarCuenta,  getContext () );
+
 
                     } catch (JSONException e){
                         e.printStackTrace();

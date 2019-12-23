@@ -63,4 +63,14 @@
         android:textStyle="bold"
         android:text="@string/nav_header_subtitle" />
 
+    <TextView
+        android:id="@+id/txtSaldo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/__color"
+        android:textStyle="bold"
+
+        android:layout_gravity="right"
+        android:text="Su saldo es de: $ 0.0" />
+
 </LinearLayout>

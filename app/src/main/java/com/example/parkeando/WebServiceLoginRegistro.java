@@ -11,6 +11,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.parkeando.Config.Config;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,7 +24,11 @@ public class WebServiceLoginRegistro {
 
 
     RequestQueue requestQueue;
-   private final String url=  "http://192.168.6.68/parkeando/Usuarios.php";
+
+/*
+    Si se requiere cambiar la ip del servidor entrar al apartado de Config y la clase config
+  */
+   private final String url=  Config.IP_SERVER + "parkeando/Usuarios.php";
     public void insertar(final String nombre, final String correo, final String password, final Context context){
         //Diseño y conecte al webservice
 

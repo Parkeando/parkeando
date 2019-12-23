@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     private void prepararDatosLogueo() {
         nombre = etNombre.getText().toString();
         password = etPassword.getText().toString();
-
+//Consulta al webservice
         WebServiceLoginRegistro wslr = new WebServiceLoginRegistro();
         wslr.loguear(nombre,password,this);
     }

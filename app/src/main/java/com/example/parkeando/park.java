@@ -1,8 +1,15 @@
 package com.example.parkeando;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -16,6 +23,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.paypal.android.sdk.u;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -26,23 +34,34 @@ import android.view.Menu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.Text;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class park extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
 
 
-    private TextView txtPerfil, txtCorreo;
+    private TextView txtPerfil, txtCorreo, txtSaldo;
+
+    WebServiceSaldo wSaldo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_park2 );
 
+
        // txtCorreo = (TextView) findViewById ( R.id.txtCorreo ) ;
         // :::SESION INICIADA::::
         final String usuario = PreferencesSesion.obtenerPreferenceString(this,PreferencesSesion.PREFERENCE_ESTADO_LOGIN);
         Toast.makeText(this, "Bienvenido: " +  usuario, Toast.LENGTH_SHORT).show();
+        wSaldo = new WebServiceSaldo (this);
+
+        wSaldo.consultarSaldo ( usuario, this );
 
         final String correo = PreferencesSesion.obtenerPreferenceString ( this,PreferencesSesion.PREFERENCE_ESTADO_CORREO );
 
@@ -60,6 +79,7 @@ public class park extends AppCompatActivity implements NavigationView.OnNavigati
             }
         } );
         DrawerLayout drawer = findViewById ( R.id.drawer_layout );
+        //Esto para la barra de navegacion izquierda
          NavigationView navigationView = findViewById ( R.id.nav_view );
 
         View hView = navigationView.getHeaderView(0);
@@ -68,7 +88,16 @@ public class park extends AppCompatActivity implements NavigationView.OnNavigati
 
         txtCorreo = (TextView) hView.findViewById ( R.id.txtCorreo ) ;
         txtCorreo.setText ( correo );
-      navigationView.setNavigationItemSelectedListener(this );
+       // txtSaldo = (TextView) hView.findViewById ( R.id.txtSaldo );
+
+
+
+   //    Toast.makeText ( this, "Su saldo es de : " + s.getSaldo (), Toast.LENGTH_SHORT ).show ();
+
+
+        navigationView.setNavigationItemSelectedListener(this );
+
+
 
 
 
@@ -83,6 +112,7 @@ public class park extends AppCompatActivity implements NavigationView.OnNavigati
         NavigationUI.setupActionBarWithNavController ( this, navController, mAppBarConfiguration );
         NavigationUI.setupWithNavController ( navigationView, navController );
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
