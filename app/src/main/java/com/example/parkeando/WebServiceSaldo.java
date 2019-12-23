@@ -123,10 +123,10 @@ this.mcontext = contex;
                                 Toast.makeText ( context, mensaje, Toast.LENGTH_SHORT ).show ();
                        NavigationView navigationView = ((Activity)context).findViewById ( R.id.nav_view );
 
-                                View hView = navigationView.getHeaderView(0);
+                               View hView = navigationView.getHeaderView(0);
                         TextView txtSaldo = hView.findViewById ( R.id.txtSaldo );
                         txtSaldo.setText ("Su saldo es de: " + "$ " +  mensaje );
-                                  navigationView.setNavigationItemSelectedListener( (NavigationView.OnNavigationItemSelectedListener) context);
+                          //       navigationView.setNavigationItemSelectedListener( (NavigationView.OnNavigationItemSelectedListener) context);
 
                             }
 
