@@ -256,7 +256,7 @@
                             android:layout_marginTop="5mm"
                             android:layout_marginLeft="10dp"
                             app:counterEnabled="true"
-                            app:counterMaxLength="45">
+                            app:counterMaxLength="10">
 
 
                         <EditText

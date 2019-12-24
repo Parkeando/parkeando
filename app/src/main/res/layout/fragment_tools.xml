@@ -3,17 +3,178 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/text_tools"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <RelativeLayout android:id="@+id/LayoutQR"
+            android:layout_marginTop="0dp"
+            android:layout_marginStart="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+
+
+            <View android:id="@+id/_bg__create_account___2_ek2"
+                android:background="@drawable/_bg__create_account___2_ek2_shape"
+                android:layout_marginLeft="0dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_width="414dp"
+                android:layout_height="896dp" />
+
+
+            <View
+                android:id="@+id/bg_ek6"
+                android:layout_width="414dp"
+                android:layout_height="759dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="79dp"
+                android:background="@drawable/bg_ek6_shape" />
+            <ImageView
+                android:layout_width="15mm"
+                android:layout_height="15mm"
+
+                android:src="@drawable/perfil"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="28mm"
+                android:layout_marginTop="69dp"
+                android:textStyle="bold"
+                android:fontFamily="monospace"
+                android:textColor="@color/fill_color"
+                android:textSize="5mm"
+                android:text="PERFIL"/>
+            <RelativeLayout
+                android:layout_height="740dp"
+                android:layout_width="400dp"
+                android:layout_marginTop="20mm">
+
+
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="340dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="20"
+                    android:id="@+id/tilNombrePerfil">
+                    <EditText
+                        android:layout_width="340dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Nombre"
+                        android:gravity="center"
+                        android:ems="10"
+                        android:maxLength="20"
+                        android:layout_marginLeft="40dp"
+                        android:id="@+id/etNombrePerfil"
+                        />
+
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="340dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="80dp"
+                    android:id="@+id/tilCorreoPerfil">
+
+                    <EditText
+                        android:layout_width="340dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Correo"
+                        android:inputType="textEmailAddress"
+                        android:gravity="center"
+                        android:layout_marginLeft="40dp"
+                        android:id="@+id/etCorreoPerfil"
+                        />
+
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="340dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="150dp"
+                    app:passwordToggleEnabled="true"
+                    app:counterMaxLength="45"
+                    android:id="@+id/tilPasswordPerfil">
+
+                    <EditText
+                        android:layout_width="340dp"
+                        android:layout_height="wrap_content"
+                        android:hint="password"
+                        android:inputType="textPassword"
+                        android:id="@+id/etPasswordPerfil"
+                        android:gravity="center"
+                        android:layout_marginLeft="40dp"
+                        />
+
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="340dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="210dp"
+                    app:passwordToggleEnabled="true"
+                    app:counterMaxLength="45">
+
+                    <EditText
+                        android:layout_width="340dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Nueva password"
+                        android:gravity="center"
+                        android:inputType="textPassword"
+                        android:id="@+id/etPasswordNuevoPerfil"
+                        android:layout_marginLeft="40dp"
+                        />
+
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <Button
+                    android:id="@+id/btnPerfilActualizar"
+                    android:layout_width="352dp"
+                    android:layout_height="46dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="300dp"
+                    android:text ="Actualizar"
+                    android:background="@drawable/spacer_ek2_shape"
+                    >
+
+                </Button>
+
+                <Button
+                    android:id="@+id/btnEliminarCuenta"
+                    android:layout_width="100dp"
+                    android:layout_height="46dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="600dp"
+                    android:text ="Eliminar Cuenta"
+                    android:background="@drawable/spacer_ek2_shape"
+                    >
+
+                </Button>
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

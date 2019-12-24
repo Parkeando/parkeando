@@ -1,5 +1,7 @@
 package com.example.parkeando;
 
+import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
@@ -12,6 +14,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.parkeando.Config.Config;
+import com.example.parkeando.ui.tools.ToolsFragment;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -122,5 +125,194 @@ public class WebServiceLoginRegistro {
         requestQueue.add(stringRequest);
 
 
+    }
+
+
+
+    public void actualizarPerfil (final String indexNombre, final String nombre,
+                                  final String correo, final String viejaPassword, final String password, final Context context ){
+
+        final StringRequest respuesta= new StringRequest( Request.Method.POST,
+                url,
+                new Response.Listener<String>() {
+
+
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject obj = new JSONObject ( response );
+                            boolean error = obj.getBoolean ( "error" );
+                            String mensaje = obj.getString ( "mensaje" );
+
+                            //  Toast.makeText ( context, mensaje, Toast.LENGTH_SHORT ).show ();
+
+
+                            if (error== true){
+                                Toast.makeText ( context, mensaje, Toast.LENGTH_SHORT ).show ();
+
+                            }else{
+                                Toast.makeText ( context, mensaje, Toast.LENGTH_SHORT ).show ();
+                                PreferencesSesion ps = new PreferencesSesion ();
+                                ps.CambiarSesion ( context, false );
+                                Intent i2;
+                                i2 = new Intent(context.getApplicationContext(), MainActivity.class);
+                                i2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                context.getApplicationContext().startActivity(i2);
+                            }
+
+
+
+                        }catch (JSONException e){
+
+                            Toast.makeText ( context, e.getMessage (), Toast.LENGTH_SHORT ).show ();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> parametros=new HashMap<String, String> ();
+
+                parametros.put("indexNombre", indexNombre );
+                parametros.put("nombre", nombre);
+                parametros.put("correo", correo);
+                parametros.put("viejaPassword", viejaPassword);
+                parametros.put("password", password);
+                parametros.put("opcion", "actualizar");
+                return parametros;
+            }
+        };
+
+        requestQueue= Volley.newRequestQueue(context);
+        requestQueue.add(respuesta);
+    }
+
+    public void consultardatosPerfil(final String usuario, final Context context){
+        final StringRequest respuesta= new StringRequest( Request.Method.POST,
+                url,
+                new Response.Listener<String>() {
+
+
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject obj = new JSONObject ( response );
+                            boolean error = obj.getBoolean ( "error" );
+                            String mensaje = obj.getString ( "mensaje" );
+
+                            String getNombre = obj.getString ( "nombre" );
+                            String getEmail = obj.getString ( "email" );
+
+                            //  Toast.makeText ( context, mensaje, Toast.LENGTH_SHORT ).show ();
+
+
+                            if (error== true){
+                                Toast.makeText ( context, mensaje, Toast.LENGTH_SHORT ).show ();
+
+                            }else{
+                                //Toast.makeText ( context, mensaje, Toast.LENGTH_SHORT ).show ();
+                            //Llamo al editText del fragment de perfil (TOOLS)
+                                ToolsFragment.etNombrePerfil = ((Activity)context).findViewById ( R.id.etNombrePerfil );
+                                ToolsFragment.etCorreoPerfil = ((Activity)context).findViewById ( R.id.etCorreoPerfil);
+                                ToolsFragment.etNombrePerfil.setText ( getNombre );
+                                ToolsFragment.etCorreoPerfil.setText ( getEmail );
+
+
+                            }
+
+
+
+                        }catch (JSONException e){
+
+                            Toast.makeText ( context, "Fallo en jSOn"+ e.getMessage (), Toast.LENGTH_SHORT ).show ();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> parametros=new HashMap<String, String> ();
+
+                parametros.put("user", usuario);
+                parametros.put("opcion", "completarPerfil");
+                return parametros;
+            }
+        };
+
+        requestQueue= Volley.newRequestQueue(context);
+        requestQueue.add(respuesta);
+    }
+
+    public void eliminarPerfil(final String usuario, final Context context){
+       // Toast.makeText ( context, usuario, Toast.LENGTH_SHORT ).show ();
+        final StringRequest respuesta= new StringRequest( Request.Method.POST,
+                url,
+                new Response.Listener<String>() {
+
+
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject obj = new JSONObject ( response );
+                            boolean error = obj.getBoolean ( "error" );
+                            String mensaje = obj.getString ( "mensaje" );
+
+
+
+                            //  Toast.makeText ( context, mensaje, Toast.LENGTH_SHORT ).show ();
+
+
+                            if (error== true){
+                                Toast.makeText ( context, mensaje, Toast.LENGTH_SHORT ).show ();
+
+                            }else{
+                                Toast.makeText ( context, mensaje, Toast.LENGTH_SHORT ).show ();
+
+                                PreferencesSesion ps = new PreferencesSesion ();
+                                ps.CambiarSesion ( context, false );
+                                Intent i2;
+                                i2 = new Intent(context.getApplicationContext(), MainActivity.class);
+                                i2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                context.getApplicationContext().startActivity(i2);
+
+
+                            }
+
+
+
+                        }catch (JSONException e){
+
+                            Toast.makeText ( context, "Fallo en jSOn"+ e.getMessage (), Toast.LENGTH_SHORT ).show ();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> parametros=new HashMap<String, String> ();
+
+                parametros.put("user", usuario);
+                parametros.put("opcion", "eliminarPerfil");
+                return parametros;
+            }
+        };
+
+        requestQueue= Volley.newRequestQueue(context);
+        requestQueue.add(respuesta);
     }
 }

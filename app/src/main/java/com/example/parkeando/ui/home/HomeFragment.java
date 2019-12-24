@@ -22,6 +22,7 @@ import com.example.parkeando.Config.Config;
 import com.example.parkeando.PreferencesSesion;
 import com.example.parkeando.R;
 import com.example.parkeando.WebServiceSaldo;
+import com.example.parkeando.park;
 import com.google.android.material.textfield.TextInputLayout;
 import com.paypal.android.sdk.payments.PayPalConfiguration;
 import com.paypal.android.sdk.payments.PayPalPayment;
@@ -192,8 +193,12 @@ public class HomeFragment extends Fragment {
                     final String usuario = PreferencesSesion.obtenerPreferenceString(getContext (),PreferencesSesion.PREFERENCE_ESTADO_LOGIN);
 
                     float monto = Integer.parseInt (etMonto.getText ().toString () );
+                    //Tarjeta
                 final  String registrarCuenta = "registrarCuenta";
                     wss.abonarSaldo ( monto, usuario, scanResult.getFormattedCardNumber (), registrarCuenta,  getContext () );
+
+                    Intent i = new Intent ( getContext (), park.class );
+                    startActivity ( i );
 
                 }
             }
@@ -215,6 +220,9 @@ public class HomeFragment extends Fragment {
                         float monto = Float.parseFloat (etMonto.getText ().toString () );
                         final  String registrarCuenta = "registrarCuentaPaypal";
                         wss.abonarSaldo ( monto, usuario, Config.PAGO_CON_PAYPAL, registrarCuenta,  getContext () );
+                        Intent i = new Intent ( getContext (), park.class );
+                        startActivity ( i );
+
 
 
                     } catch (JSONException e){

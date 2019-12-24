@@ -89,7 +89,7 @@ public class park extends AppCompatActivity implements NavigationView.OnNavigati
         txtCorreo = (TextView) hView.findViewById ( R.id.txtCorreo ) ;
         txtCorreo.setText ( correo );
 
-     //   navigationView.setNavigationItemSelectedListener(this );
+       navigationView.setNavigationItemSelectedListener(this );
 
 
 

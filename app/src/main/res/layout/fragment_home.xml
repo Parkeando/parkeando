@@ -4,6 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+
     <RelativeLayout android:id="@+id/LayoutTarjeta"
         android:layout_marginTop="0dp"
         android:layout_marginStart="0dp"
@@ -185,7 +191,7 @@
             />
     </RelativeLayout>
 
-
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
