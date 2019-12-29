@@ -10,6 +10,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.parkeando.ui.gallery.GalleryFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -17,6 +18,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -74,8 +77,12 @@ public class park extends AppCompatActivity implements NavigationView.OnNavigati
         fab.setOnClickListener ( new View.OnClickListener () {
             @Override
             public void onClick(View view) {
-                Snackbar.make ( view, "Replace with your own action", Snackbar.LENGTH_LONG )
+                Snackbar.make ( view, "Escanear QR", Snackbar.LENGTH_LONG )
                         .setAction ( "Action", null ).show ();
+
+                Fragment fragment = new GalleryFragment ();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment).commit();
             }
         } );
         DrawerLayout drawer = findViewById ( R.id.drawer_layout );
