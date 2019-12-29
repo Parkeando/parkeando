@@ -21,6 +21,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.parkeando.R;
+import com.example.parkeando.WebServiceEstacionamiento;
 import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.barcode.Barcode;
@@ -32,7 +33,9 @@ public class GalleryFragment extends Fragment {
 
     private GalleryViewModel galleryViewModel;
 
+    private WebServiceEstacionamiento wse = new WebServiceEstacionamiento ();
 
+//CODIGO QR //////////////////////////////////////////////////////////
     private final int MY_PERMISSIONS_REQUEST_CAMERA = 123;
 
 
@@ -123,6 +126,15 @@ public class GalleryFragment extends Fragment {
                             qrResult.setText(barcodes.valueAt(0).displayValue.toString());
 
                             String resultadoQR = barcodes.valueAt(0).displayValue.toString ();
+
+                            wse.consultarEstacionamiento ( resultadoQR, getContext () );
+
+
+
+
+                          /*  if (resultadoQR.equals ( "plazaComercialEntrada" )){
+                              Toast.makeText ( getContext (), "Puedes Pasar", Toast.LENGTH_SHORT ).show ();
+                            }*/
 
                         }
 

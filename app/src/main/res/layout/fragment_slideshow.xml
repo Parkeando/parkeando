@@ -4,16 +4,97 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text_slideshow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout android:id="@+id/LayoutTarjeta"
+    android:layout_marginTop="0dp"
+    android:layout_marginStart="0dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+
+
+
+    <View android:id="@+id/_bg__create_account___2_ek2"
+        android:background="@drawable/_bg__create_account___2_ek2_shape"
+        android:layout_marginLeft="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_width="414dp"
+        android:layout_height="896dp" />
+
+
+    <View
+        android:id="@+id/bg_ek6"
+        android:layout_width="414dp"
+        android:layout_height="759dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="79dp"
+        android:background="@drawable/bg_ek6_shape" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="30dp"
+            android:gravity="left"
+            android:textSize="40sp"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/elipse_4_color"
+            android:text="Hora de Entrada: "
+
+            android:id="@+id/txtTiempoInicio"
+            >
+
+
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:gravity="center"
+            android:textSize="10mm"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/fill_color"
+            android:text="00:00"
+            android:id="@+id/txtTiempo"
+            >
+
+
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="390dp"
+            android:layout_marginLeft="30dp"
+            android:gravity="left"
+            android:textSize="40sp"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/elipse_4_color"
+            android:text="Hora de Salida estimada: "
+            android:id="@+id/txtTiempoOut"
+            >
+
+
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="490dp"
+            android:gravity="center"
+            android:textSize="10mm"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/fill_color"
+            android:text="00:00"
+            android:id="@+id/txtTiempoSalida"
+            >
+
+
+        </TextView>
+
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
