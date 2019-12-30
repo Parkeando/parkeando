@@ -214,8 +214,7 @@ public class WebServiceEstacionamiento {
                             boolean error = obj.getBoolean ( "error" );
                             String mensaje = obj.getString ( "mensaje" );
 
-                            String entrada = obj.getString ( "horaEntrada" );
-                            String salida = obj.getString ( "horaSalida" );
+
 
 
 
@@ -225,8 +224,13 @@ public class WebServiceEstacionamiento {
 
                             if (error== true){
                                 Toast.makeText ( context, mensaje, Toast.LENGTH_SHORT ).show ();
+                                Intent i = new Intent ( context, park.class );
+                                context.startActivity ( i );
 
                             }else{
+
+                                String entrada = obj.getString ( "horaEntrada" );
+                                String salida = obj.getString ( "horaSalida" );
                                 //QR Exitoso y posterior descuento de saldo apartir de aqui
                                 // COLOCAR LA FUNCION DE LEVANTAR PLUMILLA DE ENTRADA AL ESTACIONAMIENTO
                                 /////////////////////////////////////////////////////////////
@@ -313,8 +317,8 @@ public class WebServiceEstacionamiento {
 
                             if (error== true){
 
-
-                                switch (mensaje){
+                                Toast.makeText ( context, mensaje, Toast.LENGTH_SHORT ).show ();
+                               switch (mensaje){
                                     case "Saldo insuficiente":
                                         //no COLOCAR LA FUNCION DE LA PLUMILLA
                                         Toast.makeText ( context, mensaje, Toast.LENGTH_SHORT ).show ();
@@ -348,7 +352,11 @@ public class WebServiceEstacionamiento {
                             }else{
                                 //QR Exitoso o que existe el estacionamiento en el sistema
                                 Toast.makeText ( context, mensaje, Toast.LENGTH_SHORT ).show ();
-                            //Aqui colocar la funcion de salida plumilla
+                            //Aqui colocar la funcion de salida plumilla por que tuvo sus min 10 gratis y salio
+                                // en el momento adecuado
+
+                                Intent i3 = new Intent (context, park.class);
+                                context.startActivity ( i3 );
 
 
                             }
