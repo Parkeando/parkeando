@@ -2,7 +2,7 @@
 <resources>
     <!-- login___create_account strings -->
 
-    <string name="app_name">Login - Create account</string>
+    <string name="app_name">Parkeando</string>
     <string name="ek_img_content">ExportKit Image</string>
     <string name="iniciar_sesion_string">Iniciar sesion</string>
     <string name="crear_cuenta_string">Crear cuenta</string>
