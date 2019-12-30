@@ -123,7 +123,7 @@ public class GalleryFragment extends Fragment {
                         public void run() {
                             //Es importe que al imprimir el resultado este sea usando el displayvalue ya que asi
                             //referencia el indice en su valor real
-                            qrResult.setText(barcodes.valueAt(0).displayValue.toString());
+                           // qrResult.setText(barcodes.valueAt(0).displayValue.toString());
 
                             String resultadoQR = barcodes.valueAt(0).displayValue.toString ();
 
