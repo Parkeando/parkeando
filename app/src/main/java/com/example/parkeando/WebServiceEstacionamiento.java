@@ -26,6 +26,7 @@ import com.example.parkeando.ui.tools.ToolsFragment;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.Format;
 import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
@@ -78,7 +79,8 @@ public class WebServiceEstacionamiento {
 
                                            }
                                        } );
-                                       dialogAct.setMessage ( "¿Desea ingresar?" );
+                                       dialogAct.setMessage ( "¿Desea ingresar? Los primeros 10 minutos son gratis, " +
+                                               "a un así es importante contar con un saldo suficiente para ingresar al estacionamiento" );
                                        dialogAct.setCancelable ( false );
                                        dialogAct.setPositiveButton ( "Aceptar", new DialogInterface.OnClickListener () {
                                            @Override
@@ -88,19 +90,41 @@ public class WebServiceEstacionamiento {
                                             Calendar calendar = Calendar.getInstance ();
                                             int hora,min,seg;
 
-                                            hora = calendar.get(Calendar.HOUR_OF_DAY);
-                                            min = calendar.get(Calendar.MINUTE);
-                                            seg = calendar.get(Calendar.SECOND);
+                                            calendar.get(Calendar.HOUR_OF_DAY);
+                                           //min = calendar.get(Calendar.MINUTE);
+                                                calendar.add(Calendar.MINUTE, 10);
+                                            calendar.get(Calendar.SECOND);
 
-                                            String tiempoActual = hora + ":" + min + ":" + seg;
+                                            Date horaActual = calendar.getTime ();
+                                            //10 min gratis :)
 
-                                            int horaS = hora + 1;
+                                               //int minutosDespuesCobra = calendar.get ( Calendar.MINUTE, 10 ) ;
 
-                                            String tiempoSalida = horaS + ":" + min + ":" + seg;
-                                              // Toast.makeText ( context, tiempoActual, Toast.LENGTH_SHORT ).show ();
+
+
+                                        //    String tiempoActual = hora + ":" + minutosDespuesCobra + ":" + seg;
+
+
+
+
+                                        //    String tiempoSalida = horaS + ":" + minutosDespuesCobra + ":" + seg;
+
+
+                                               Calendar calendarSumaDO = Calendar.getInstance();
+                                               calendarSumaDO.add ( Calendar.HOUR_OF_DAY, 1 );
+                                               calendarSumaDO.add(Calendar.MINUTE, 10); //minutosASumar es int.
+                                               calendarSumaDO.get (Calendar.SECOND);
+                                               Date minutoSumado = calendarSumaDO.getTime ();
+
+                                               // Toast.makeText ( context, tiempoActual, Toast.LENGTH_SHORT ).show ();
+
+                                               Format formatter = new SimpleDateFormat("HH:mm:ss");
+
+                                               String tiempoactual = formatter.format (  horaActual);
+                                               String tiempoSalidaEstimado = formatter.format ( minutoSumado );
 
                                                 //llamamos al metodo que se comunica con Webservice para descontar la primera hora
-                                              descontarSaldo(usuario, estacionamiento, tiempoActual, tiempoSalida, context);
+                                              descontarSaldo(usuario, estacionamiento, tiempoactual, tiempoSalidaEstimado, context);
 
                                            }
                                        } );
@@ -213,7 +237,8 @@ public class WebServiceEstacionamiento {
                                 Toast.makeText ( context, "Tu hora de salida estimada es: " +  salida, Toast.LENGTH_SHORT ).show ();
 
 
-
+                                Intent i = new Intent ( context, park.class );
+                                context.startActivity ( i );
 
 /*
                                 //impresion de la hora de entrada.
@@ -224,8 +249,7 @@ public class WebServiceEstacionamiento {
                                 txtTiempo.setText ( entrada );
                                 txtTiempoSalida.setText ( salida );*/
 /*
-                                Intent i = new Intent ( context, park.class );
-                               context.startActivity ( i );*/
+                              */
 
 
 
