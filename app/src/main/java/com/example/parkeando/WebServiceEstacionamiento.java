@@ -1,14 +1,17 @@
 package com.example.parkeando;
 
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.FragmentTransaction;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.icu.text.DateFormat;
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -240,9 +243,12 @@ public class WebServiceEstacionamiento {
 
                                 Toast.makeText ( context, "Tu hora de salida estimada es: " +  salida, Toast.LENGTH_SHORT ).show ();
 
-
+                                iniciarAlarma(true, context);
                                 Intent i = new Intent ( context, park.class );
                                 context.startActivity ( i );
+
+                                
+
 
 /*
                                 //impresion de la hora de entrada.
@@ -289,8 +295,24 @@ public class WebServiceEstacionamiento {
         requestQueue.add(respuesta);
     }
 
+    private void iniciarAlarma(Boolean valorbool, Context context) {
+        AlarmManager manager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+        Intent myIntent;
+        PendingIntent pendingIntent;
+        myIntent = new Intent(context,AlarmNotificationReceiver.class);
+        pendingIntent = PendingIntent.getBroadcast(context,0,myIntent,0);
 
 
+        if (valorbool == true){
+
+            // Si deseas aumentar el tiempo de intervalo en el que estara sonando la alarma
+            //por ejemplo 20 min en vez de 1min lo unico que se haria es una operacion 1000 * 60 * 20
+            manager.setRepeating(AlarmManager.RTC_WAKEUP, SystemClock.elapsedRealtime()+3000,60*1000,pendingIntent);
+
+        }else {
+            manager.cancel ( pendingIntent );
+        }
+    }
 
 
     public void descontarSaldoSalida(final String usuario, final String estacionamineto, final String horaSalida,
@@ -343,6 +365,8 @@ public class WebServiceEstacionamiento {
                                                 Intent i3 = new Intent (context, park.class);
                                                 context.startActivity ( i3 );
 
+                                                //mandar el apagado de la alarma con su notificacion
+                                                iniciarAlarma ( false,context );
                                             }
                                         } );
                                         dialogAct.show ();
@@ -354,7 +378,7 @@ public class WebServiceEstacionamiento {
                                 Toast.makeText ( context, mensaje, Toast.LENGTH_SHORT ).show ();
                             //Aqui colocar la funcion de salida plumilla por que tuvo sus min 10 gratis y salio
                                 // en el momento adecuado
-
+                                iniciarAlarma ( false,context );
                                 Intent i3 = new Intent (context, park.class);
                                 context.startActivity ( i3 );
 
@@ -401,7 +425,7 @@ public class WebServiceEstacionamiento {
 
 
 
-
+//Fragment de tiempo
     public void consultarEstacionamiento2(final String usuario, final Context context){
 
         final StringRequest respuesta= new StringRequest( Request.Method.POST,
@@ -474,6 +498,14 @@ public class WebServiceEstacionamiento {
         requestQueue= Volley.newRequestQueue(context);
         requestQueue.add(respuesta);
     }
+
+
+
+
+
+
+
+
 
 
 
